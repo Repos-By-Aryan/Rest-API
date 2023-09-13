@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Title',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                               Text('Title',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                               Text(postList[index].title.toString()),
                               SizedBox(height:10),
                               Text('Body',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
