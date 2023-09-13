@@ -40,16 +40,22 @@ class _ExampleTwoState extends State<ExampleTwo> {
         children: [
           Expanded(
             child: FutureBuilder(future: getPhotos(), builder: (context,AsyncSnapshot<List<Photos>> snapshot){
+            if(!snapshot.hasData){
+              return Center(child: CircularProgressIndicator(),);
+            }
+            else {
               return ListView.builder(
                   itemCount: photoList.length,
-                  itemBuilder: (context,index){
-                return ListTile(
-                  leading: CircleAvatar(backgroundImage: NetworkImage(snapshot.data![index].url.toString()),),
-                  title: Text(snapshot.data![index].title.toString()),
-                  subtitle: Text(snapshot.data![index].id.toString()),
-                );
-              });
-    } ),
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: CircleAvatar(backgroundImage: NetworkImage(
+                          snapshot.data![index].url.toString()),),
+                      title: Text(snapshot.data![index].title.toString()),
+                      subtitle: Text(snapshot.data![index].id.toString()),
+                    );
+                  });
+            }
+    }),
           ),
         ],
       ),
