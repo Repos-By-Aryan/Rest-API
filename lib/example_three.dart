@@ -58,6 +58,8 @@ class _ExampleThreeState extends State<ExampleThree> {
                                 Text("Name : "+snapshot.data![index].name.toString()),
                                 Text("Username : "+snapshot.data![index].username.toString()),
                                 Text("Email : "+snapshot.data![index].email.toString()),
+                                Text("Phone : "+snapshot.data![index].phone.toString()),
+                                Text("Website : "+snapshot.data![index].website.toString()),
                                 Text("Address : "+snapshot.data![index].address!.suite.toString()+', '+snapshot.data![index].address!.street.toString()+', '+snapshot.data![index].address!.city.toString()+'\nZipCode : '+snapshot.data![index].address!.zipcode.toString()),
                                 Text("Geo : \n  Lat : "+snapshot.data![index].address!.geo!.lat.toString()+"\n  Lng : "+snapshot.data![index].address!.geo!.lng.toString())
                               ],
