@@ -31,11 +31,34 @@ class _ExampleFourState extends State<ExampleFour> {
       ),
       body: Column(
         children: [
-          FutureBuilder(future: getUserApi(), builder: (context, snapshot){
-            if(snapshot.connectionState == ConnectionState.waiting){
-              return Center(child: CircularProgressIndicator());
-            }
-          }),
+          Expanded(
+            child: FutureBuilder(future: getUserApi(), builder: (context, snapshot){
+              if(snapshot.connectionState == ConnectionState.waiting){
+                return Center(child: CircularProgressIndicator());
+              }
+              else{
+                return ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context,index){
+                  return Card(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Name : "+data![index]['name'].toString()),
+                        Text("Username : "+data![index]['username'].toString()),
+                        Text("Email : "+data![index]['email'].toString()),
+                        Text("Phone : "+data![index]['phone'].toString()),
+                        Text("Website : "+data![index]['website'].toString()),
+                        Text("Address : "+data![index]['address']['suite'].toString()+', '+data![index]['address']['street'].toString()+', '+data![index]['address']['city'].toString()+'\nZipCode : '+data![index]['address']['zipcode'].toString()),
+                        Text("Geo : \n  Lat : "+data![index]['address']['geo']['lat'].toString()+"\n  Lng : "+data![index]['address']['geo']['lng'].toString()),
+                      ],
+                    ),
+                  );
+                });
+              }
+            }),
+          ),
         ],
       ),
     );
