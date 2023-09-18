@@ -1,236 +1,253 @@
-/// items : {"item":[{"id":"0001","type":"donut","name":"Cake","ppu":0.55,"batters":{"batter":[{"id":"1001","type":"Regular"},{"id":"1002","type":"Chocolate"},{"id":"1003","type":"Blueberry"},{"id":"1004","type":"Devil's Food"}]},"topping":[{"id":"5001","type":"None"},{"id":"5002","type":"Glazed"},{"id":"5005","type":"Sugar"},{"id":"5007","type":"Powdered Sugar"},{"id":"5006","type":"Chocolate with Sprinkles"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}]},{"id":"0002","type":"donut","name":"Raised","ppu":0.55,"batters":{"batter":[{"id":"1001","type":"Regular"}]},"topping":[{"id":"5001","type":"None"},{"id":"5002","type":"Glazed"},{"id":"5005","type":"Sugar"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}]},{"id":"0003","type":"donut","name":"Old Fashioned","ppu":0.55,"batters":{"batter":[{"id":"1001","type":"Regular"},{"id":"1002","type":"Chocolate"}]},"topping":[{"id":"5001","type":"None"},{"id":"5002","type":"Glazed"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}]},{"id":"0004","type":"bar","name":"Bar","ppu":0.75,"batters":{"batter":[{"id":"1001","type":"Regular"},null]},"topping":[{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}],"fillings":{"filling":[{"id":"7001","name":"None","addcost":0},{"id":"7002","name":"Custard","addcost":0.25},{"id":"7003","name":"Whipped Cream","addcost":0.25}]}},{"id":"0005","type":"twist","name":"Twist","ppu":0.65,"batters":{"batter":[{"id":"1001","type":"Regular"},null]},"topping":[{"id":"5002","type":"Glazed"},{"id":"5005","type":"Sugar"},null]},{"id":"0006","type":"filled","name":"Filled","ppu":0.75,"batters":{"batter":[{"id":"1001","type":"Regular"},null]},"topping":[{"id":"5002","type":"Glazed"},{"id":"5007","type":"Powdered Sugar"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}],"fillings":{"filling":[{"id":"7002","name":"Custard","addcost":0},{"id":"7003","name":"Whipped Cream","addcost":0},{"id":"7004","name":"Strawberry Jelly","addcost":0},{"id":"7005","name":"Rasberry Jelly","addcost":0}]}}]}
+/// _id : "650862b620b6a7d7e06116fa"
+/// index : 0
+/// guid : "5249809e-0410-4318-a9c9-3d1cafb3f218"
+/// isActive : true
+/// balance : "$1,521.97"
+/// picture : "http://placehold.it/32x32"
+/// age : 39
+/// eyeColor : "green"
+/// name : "Burris Carter"
+/// gender : "male"
+/// company : "MEGALL"
+/// email : "burriscarter@megall.com"
+/// phone : "+1 (803) 586-2074"
+/// address : "599 Ira Court, Graball, Nebraska, 6145"
+/// about : "Ullamco mollit laborum eiusmod sunt proident aliquip consequat veniam. Irure anim proident cupidatat aliqua. Eu ullamco fugiat eiusmod amet consequat magna quis culpa anim ipsum. Aliqua tempor velit ipsum non ullamco irure elit. Amet do mollit ullamco velit velit veniam ut do ut.\r\n"
+/// registered : "2022-11-07T01:14:41 -06:-30"
+/// latitude : 83.881322
+/// longitude : -140.642853
+/// tags : ["tempor","ea","proident","reprehenderit","anim","do","reprehenderit"]
+/// friends : [{"id":0,"name":"Lorna Castillo"},{"id":1,"name":"Hooper Schmidt"},{"id":2,"name":"Lucinda Farrell"}]
+/// greeting : "Hello, Burris Carter! You have 6 unread messages."
+/// favoriteFruit : "banana"
 
 class DonutModel {
   DonutModel({
-      Items? items,}){
-    _items = items;
+      String? id, 
+      num? index, 
+      String? guid, 
+      bool? isActive, 
+      String? balance, 
+      String? picture, 
+      num? age, 
+      String? eyeColor, 
+      String? name, 
+      String? gender, 
+      String? company, 
+      String? email, 
+      String? phone, 
+      String? address, 
+      String? about, 
+      String? registered, 
+      num? latitude, 
+      num? longitude, 
+      List<String>? tags, 
+      List<Friends>? friends, 
+      String? greeting, 
+      String? favoriteFruit,}){
+    _id = id;
+    _index = index;
+    _guid = guid;
+    _isActive = isActive;
+    _balance = balance;
+    _picture = picture;
+    _age = age;
+    _eyeColor = eyeColor;
+    _name = name;
+    _gender = gender;
+    _company = company;
+    _email = email;
+    _phone = phone;
+    _address = address;
+    _about = about;
+    _registered = registered;
+    _latitude = latitude;
+    _longitude = longitude;
+    _tags = tags;
+    _friends = friends;
+    _greeting = greeting;
+    _favoriteFruit = favoriteFruit;
 }
 
   DonutModel.fromJson(dynamic json) {
-    _items = json['items'] != null ? Items.fromJson(json['items']) : null;
-  }
-  Items? _items;
-DonutModel copyWith({  Items? items,
-}) => DonutModel(  items: items ?? _items,
-);
-  Items? get items => _items;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    if (_items != null) {
-      map['items'] = _items?.toJson();
-    }
-    return map;
-  }
-
-}
-
-/// item : [{"id":"0001","type":"donut","name":"Cake","ppu":0.55,"batters":{"batter":[{"id":"1001","type":"Regular"},{"id":"1002","type":"Chocolate"},{"id":"1003","type":"Blueberry"},{"id":"1004","type":"Devil's Food"}]},"topping":[{"id":"5001","type":"None"},{"id":"5002","type":"Glazed"},{"id":"5005","type":"Sugar"},{"id":"5007","type":"Powdered Sugar"},{"id":"5006","type":"Chocolate with Sprinkles"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}]},{"id":"0002","type":"donut","name":"Raised","ppu":0.55,"batters":{"batter":[{"id":"1001","type":"Regular"}]},"topping":[{"id":"5001","type":"None"},{"id":"5002","type":"Glazed"},{"id":"5005","type":"Sugar"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}]},{"id":"0003","type":"donut","name":"Old Fashioned","ppu":0.55,"batters":{"batter":[{"id":"1001","type":"Regular"},{"id":"1002","type":"Chocolate"}]},"topping":[{"id":"5001","type":"None"},{"id":"5002","type":"Glazed"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}]},{"id":"0004","type":"bar","name":"Bar","ppu":0.75,"batters":{"batter":[{"id":"1001","type":"Regular"},null]},"topping":[{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}],"fillings":{"filling":[{"id":"7001","name":"None","addcost":0},{"id":"7002","name":"Custard","addcost":0.25},{"id":"7003","name":"Whipped Cream","addcost":0.25}]}},{"id":"0005","type":"twist","name":"Twist","ppu":0.65,"batters":{"batter":[{"id":"1001","type":"Regular"},null]},"topping":[{"id":"5002","type":"Glazed"},{"id":"5005","type":"Sugar"},null]},{"id":"0006","type":"filled","name":"Filled","ppu":0.75,"batters":{"batter":[{"id":"1001","type":"Regular"},null]},"topping":[{"id":"5002","type":"Glazed"},{"id":"5007","type":"Powdered Sugar"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}],"fillings":{"filling":[{"id":"7002","name":"Custard","addcost":0},{"id":"7003","name":"Whipped Cream","addcost":0},{"id":"7004","name":"Strawberry Jelly","addcost":0},{"id":"7005","name":"Rasberry Jelly","addcost":0}]}}]
-
-class Items {
-  Items({
-      List<Item>? item,}){
-    _item = item;
-}
-
-  Items.fromJson(dynamic json) {
-    if (json['item'] != null) {
-      _item = [];
-      json['item'].forEach((v) {
-        _item?.add(Item.fromJson(v));
-      });
-    }
-  }
-  List<Item>? _item;
-Items copyWith({  List<Item>? item,
-}) => Items(  item: item ?? _item,
-);
-  List<Item>? get item => _item;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    if (_item != null) {
-      map['item'] = _item?.map((v) => v.toJson()).toList();
-    }
-    return map;
-  }
-
-}
-
-/// id : "0001"
-/// type : "donut"
-/// name : "Cake"
-/// ppu : 0.55
-/// batters : {"batter":[{"id":"1001","type":"Regular"},{"id":"1002","type":"Chocolate"},{"id":"1003","type":"Blueberry"},{"id":"1004","type":"Devil's Food"}]}
-/// topping : [{"id":"5001","type":"None"},{"id":"5002","type":"Glazed"},{"id":"5005","type":"Sugar"},{"id":"5007","type":"Powdered Sugar"},{"id":"5006","type":"Chocolate with Sprinkles"},{"id":"5003","type":"Chocolate"},{"id":"5004","type":"Maple"}]
-
-class Item {
-  Item({
-      String? id, 
-      String? type, 
-      String? name, 
-      num? ppu, 
-      Batters? batters, 
-      List<Topping>? topping,}){
-    _id = id;
-    _type = type;
-    _name = name;
-    _ppu = ppu;
-    _batters = batters;
-    _topping = topping;
-}
-
-  Item.fromJson(dynamic json) {
-    _id = json['id'];
-    _type = json['type'];
+    _id = json['_id'];
+    _index = json['index'];
+    _guid = json['guid'];
+    _isActive = json['isActive'];
+    _balance = json['balance'];
+    _picture = json['picture'];
+    _age = json['age'];
+    _eyeColor = json['eyeColor'];
     _name = json['name'];
-    _ppu = json['ppu'];
-    _batters = json['batters'] != null ? Batters.fromJson(json['batters']) : null;
-    if (json['topping'] != null) {
-      _topping = [];
-      json['topping'].forEach((v) {
-        _topping?.add(Topping.fromJson(v));
+    _gender = json['gender'];
+    _company = json['company'];
+    _email = json['email'];
+    _phone = json['phone'];
+    _address = json['address'];
+    _about = json['about'];
+    _registered = json['registered'];
+    _latitude = json['latitude'];
+    _longitude = json['longitude'];
+    _tags = json['tags'] != null ? json['tags'].cast<String>() : [];
+    if (json['friends'] != null) {
+      _friends = [];
+      json['friends'].forEach((v) {
+        _friends?.add(Friends.fromJson(v));
       });
     }
+    _greeting = json['greeting'];
+    _favoriteFruit = json['favoriteFruit'];
   }
   String? _id;
-  String? _type;
+  num? _index;
+  String? _guid;
+  bool? _isActive;
+  String? _balance;
+  String? _picture;
+  num? _age;
+  String? _eyeColor;
   String? _name;
-  num? _ppu;
-  Batters? _batters;
-  List<Topping>? _topping;
-Item copyWith({  String? id,
-  String? type,
+  String? _gender;
+  String? _company;
+  String? _email;
+  String? _phone;
+  String? _address;
+  String? _about;
+  String? _registered;
+  num? _latitude;
+  num? _longitude;
+  List<String>? _tags;
+  List<Friends>? _friends;
+  String? _greeting;
+  String? _favoriteFruit;
+DonutModel copyWith({  String? id,
+  num? index,
+  String? guid,
+  bool? isActive,
+  String? balance,
+  String? picture,
+  num? age,
+  String? eyeColor,
   String? name,
-  num? ppu,
-  Batters? batters,
-  List<Topping>? topping,
-}) => Item(  id: id ?? _id,
-  type: type ?? _type,
+  String? gender,
+  String? company,
+  String? email,
+  String? phone,
+  String? address,
+  String? about,
+  String? registered,
+  num? latitude,
+  num? longitude,
+  List<String>? tags,
+  List<Friends>? friends,
+  String? greeting,
+  String? favoriteFruit,
+}) => DonutModel(  id: id ?? _id,
+  index: index ?? _index,
+  guid: guid ?? _guid,
+  isActive: isActive ?? _isActive,
+  balance: balance ?? _balance,
+  picture: picture ?? _picture,
+  age: age ?? _age,
+  eyeColor: eyeColor ?? _eyeColor,
   name: name ?? _name,
-  ppu: ppu ?? _ppu,
-  batters: batters ?? _batters,
-  topping: topping ?? _topping,
+  gender: gender ?? _gender,
+  company: company ?? _company,
+  email: email ?? _email,
+  phone: phone ?? _phone,
+  address: address ?? _address,
+  about: about ?? _about,
+  registered: registered ?? _registered,
+  latitude: latitude ?? _latitude,
+  longitude: longitude ?? _longitude,
+  tags: tags ?? _tags,
+  friends: friends ?? _friends,
+  greeting: greeting ?? _greeting,
+  favoriteFruit: favoriteFruit ?? _favoriteFruit,
 );
   String? get id => _id;
-  String? get type => _type;
+  num? get index => _index;
+  String? get guid => _guid;
+  bool? get isActive => _isActive;
+  String? get balance => _balance;
+  String? get picture => _picture;
+  num? get age => _age;
+  String? get eyeColor => _eyeColor;
   String? get name => _name;
-  num? get ppu => _ppu;
-  Batters? get batters => _batters;
-  List<Topping>? get topping => _topping;
+  String? get gender => _gender;
+  String? get company => _company;
+  String? get email => _email;
+  String? get phone => _phone;
+  String? get address => _address;
+  String? get about => _about;
+  String? get registered => _registered;
+  num? get latitude => _latitude;
+  num? get longitude => _longitude;
+  List<String>? get tags => _tags;
+  List<Friends>? get friends => _friends;
+  String? get greeting => _greeting;
+  String? get favoriteFruit => _favoriteFruit;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['id'] = _id;
-    map['type'] = _type;
+    map['_id'] = _id;
+    map['index'] = _index;
+    map['guid'] = _guid;
+    map['isActive'] = _isActive;
+    map['balance'] = _balance;
+    map['picture'] = _picture;
+    map['age'] = _age;
+    map['eyeColor'] = _eyeColor;
     map['name'] = _name;
-    map['ppu'] = _ppu;
-    if (_batters != null) {
-      map['batters'] = _batters?.toJson();
+    map['gender'] = _gender;
+    map['company'] = _company;
+    map['email'] = _email;
+    map['phone'] = _phone;
+    map['address'] = _address;
+    map['about'] = _about;
+    map['registered'] = _registered;
+    map['latitude'] = _latitude;
+    map['longitude'] = _longitude;
+    map['tags'] = _tags;
+    if (_friends != null) {
+      map['friends'] = _friends?.map((v) => v.toJson()).toList();
     }
-    if (_topping != null) {
-      map['topping'] = _topping?.map((v) => v.toJson()).toList();
-    }
+    map['greeting'] = _greeting;
+    map['favoriteFruit'] = _favoriteFruit;
     return map;
   }
 
 }
 
-/// id : "5001"
-/// type : "None"
+/// id : 0
+/// name : "Lorna Castillo"
 
-class Topping {
-  Topping({
-      String? id, 
-      String? type,}){
+class Friends {
+  Friends({
+      num? id, 
+      String? name,}){
     _id = id;
-    _type = type;
+    _name = name;
 }
 
-  Topping.fromJson(dynamic json) {
+  Friends.fromJson(dynamic json) {
     _id = json['id'];
-    _type = json['type'];
+    _name = json['name'];
   }
-  String? _id;
-  String? _type;
-Topping copyWith({  String? id,
-  String? type,
-}) => Topping(  id: id ?? _id,
-  type: type ?? _type,
+  num? _id;
+  String? _name;
+Friends copyWith({  num? id,
+  String? name,
+}) => Friends(  id: id ?? _id,
+  name: name ?? _name,
 );
-  String? get id => _id;
-  String? get type => _type;
+  num? get id => _id;
+  String? get name => _name;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = _id;
-    map['type'] = _type;
-    return map;
-  }
-
-}
-
-/// batter : [{"id":"1001","type":"Regular"},{"id":"1002","type":"Chocolate"},{"id":"1003","type":"Blueberry"},{"id":"1004","type":"Devil's Food"}]
-
-class Batters {
-  Batters({
-      List<Batter>? batter,}){
-    _batter = batter;
-}
-
-  Batters.fromJson(dynamic json) {
-    if (json['batter'] != null) {
-      _batter = [];
-      json['batter'].forEach((v) {
-        _batter?.add(Batter.fromJson(v));
-      });
-    }
-  }
-  List<Batter>? _batter;
-Batters copyWith({  List<Batter>? batter,
-}) => Batters(  batter: batter ?? _batter,
-);
-  List<Batter>? get batter => _batter;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    if (_batter != null) {
-      map['batter'] = _batter?.map((v) => v.toJson()).toList();
-    }
-    return map;
-  }
-
-}
-
-/// id : "1001"
-/// type : "Regular"
-
-class Batter {
-  Batter({
-      String? id, 
-      String? type,}){
-    _id = id;
-    _type = type;
-}
-
-  Batter.fromJson(dynamic json) {
-    _id = json['id'];
-    _type = json['type'];
-  }
-  String? _id;
-  String? _type;
-Batter copyWith({  String? id,
-  String? type,
-}) => Batter(  id: id ?? _id,
-  type: type ?? _type,
-);
-  String? get id => _id;
-  String? get type => _type;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = _id;
-    map['type'] = _type;
+    map['name'] = _name;
     return map;
   }
 
