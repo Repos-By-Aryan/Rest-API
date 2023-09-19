@@ -4,6 +4,7 @@ import 'package:rest_api/example_three.dart';
 import 'package:rest_api/example_two.dart';
 import 'package:rest_api/home_screen.dart';
 import 'package:rest_api/example_four.dart';
+import 'package:rest_api/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  const ExampleFive(),
+      home:  const SignUpScreen(),
     );
   }
 }
