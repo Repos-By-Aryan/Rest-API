@@ -21,6 +21,8 @@
 /// greeting : "Hello, Burris Carter! You have 6 unread messages."
 /// favoriteFruit : "banana"
 
+// ignore_for_file: file_names
+
 class DonutModel {
   DonutModel({
       String? id, 

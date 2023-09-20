@@ -24,7 +24,7 @@ class _ExampleFourState extends State<ExampleFour> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rest API 4'),
+        title: const Text('Rest API 4'),
         centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 10,
@@ -34,7 +34,7 @@ class _ExampleFourState extends State<ExampleFour> {
           Expanded(
             child: FutureBuilder(future: getUserApi(), builder: (context, snapshot){
               if(snapshot.connectionState == ConnectionState.waiting){
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
               else{
                 return ListView.builder(
@@ -45,13 +45,14 @@ class _ExampleFourState extends State<ExampleFour> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Name : "+data![index]['name'].toString()),
-                        Text("Username : "+data![index]['username'].toString()),
-                        Text("Email : "+data![index]['email'].toString()),
-                        Text("Phone : "+data![index]['phone'].toString()),
-                        Text("Website : "+data![index]['website'].toString()),
+                        Text("Name : ${data![index]['name']}"),
+                        Text("Username : ${data![index]['username']}"),
+                        Text("Email : ${data![index]['email']}"),
+                        Text("Phone : ${data![index]['phone']}"),
+                        Text("Website : ${data![index]['website']}"),
+                        // ignore: prefer_interpolation_to_compose_strings
                         Text("Address : "+data![index]['address']['suite'].toString()+', '+data![index]['address']['street'].toString()+', '+data![index]['address']['city'].toString()+'\nZipCode : '+data![index]['address']['zipcode'].toString()),
-                        Text("Geo : \n  Lat : "+data![index]['address']['geo']['lat'].toString()+"\n  Lng : "+data![index]['address']['geo']['lng'].toString()),
+                        Text("Geo : \n  Lat : ${data![index]['address']['geo']['lat']}\n  Lng : ${data![index]['address']['geo']['lng']}"),
                       ],
                     ),
                   );

@@ -28,7 +28,7 @@ class _ExampleFiveState extends State<ExampleFive> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("REST API's"),
+        title: const Text("REST API's"),
         centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 10,
@@ -37,7 +37,7 @@ class _ExampleFiveState extends State<ExampleFive> {
         children: [
           Expanded(child: FutureBuilder<List<DonutModel>>(future: getDonuts(), builder: (context,AsyncSnapshot<List<DonutModel>> snapshot){
             if(!snapshot.hasData){
-              return Center(child: CircularProgressIndicator(),);
+              return const Center(child: CircularProgressIndicator(),);
             }
             else if(snapshot.hasError){
               return Text("Error : ${snapshot.error}");
@@ -64,9 +64,9 @@ class _ExampleFiveState extends State<ExampleFive> {
                                 backgroundColor: snapshot.data![index].isActive! ? Colors.lightGreen : Colors.grey,
                               ),
                             ),
-                            Text("Tags : "+snapshot.data![index].tags.toString()),
-                            Text("Friends : "),
-                            Container(
+                            Text("Tags : ${snapshot.data![index].tags}"),
+                            const Text("Friends : "),
+                            SizedBox(
                               height: 18,
                               child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
@@ -74,7 +74,7 @@ class _ExampleFiveState extends State<ExampleFive> {
                                   itemBuilder: (context,position){
                                   return Row(
                                     children: [
-                                      Text(snapshot.data![index].friends![position].name.toString()+", "),
+                                      Text("${snapshot.data![index].friends![position].name}, "),
                                     ],
                                   );
                               }),

@@ -33,7 +33,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('REST API'),
+        title: const Text('REST API'),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -42,7 +42,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
           Expanded(
             child: FutureBuilder(future: getPhotos(), builder: (context,AsyncSnapshot<List<Photos>> snapshot){
             if(!snapshot.hasData){
-              return Center(child: CircularProgressIndicator(),);
+              return const Center(child: CircularProgressIndicator(),);
             }
             else {
               return ListView.builder(

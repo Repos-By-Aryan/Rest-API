@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("REST API's"),
+        title: const Text("REST API's"),
         centerTitle: true,
         automaticallyImplyLeading: false,
         elevation:5,
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: FutureBuilder(future: getPostApi(), builder: (context,snapshot){
               if(!snapshot.hasData){
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
               else{
                 return ListView.builder(
@@ -55,10 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                               Text('Title',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                               const Text('Title',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                               Text(postList[index].title.toString()),
-                              SizedBox(height:10),
-                              Text('Body',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                              const SizedBox(height:10),
+                              const Text('Body',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                               Text(postList[index].body.toString()),
                             ],
                           ),

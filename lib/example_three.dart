@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -30,7 +32,7 @@ class _ExampleThreeState extends State<ExampleThree> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rest API'),
+        title: const Text('Rest API'),
         centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 10,
@@ -40,7 +42,7 @@ class _ExampleThreeState extends State<ExampleThree> {
           Expanded(
             child: FutureBuilder(future: getUserApi(), builder: (context,AsyncSnapshot<List<UserModel>> snapshot){
               if(!snapshot.hasData){
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
               else{
                 return Padding(
@@ -55,13 +57,13 @@ class _ExampleThreeState extends State<ExampleThree> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Name : "+snapshot.data![index].name.toString()),
-                                Text("Username : "+snapshot.data![index].username.toString()),
-                                Text("Email : "+snapshot.data![index].email.toString()),
-                                Text("Phone : "+snapshot.data![index].phone.toString()),
-                                Text("Website : "+snapshot.data![index].website.toString()),
+                                Text("Name : ${snapshot.data![index].name}"),
+                                Text("Username : ${snapshot.data![index].username}"),
+                                Text("Email : ${snapshot.data![index].email}"),
+                                Text("Phone : ${snapshot.data![index].phone}"),
+                                Text("Website : ${snapshot.data![index].website}"),
                                 Text("Address : "+snapshot.data![index].address!.suite.toString()+', '+snapshot.data![index].address!.street.toString()+', '+snapshot.data![index].address!.city.toString()+'\nZipCode : '+snapshot.data![index].address!.zipcode.toString()),
-                                Text("Geo : \n  Lat : "+snapshot.data![index].address!.geo!.lat.toString()+"\n  Lng : "+snapshot.data![index].address!.geo!.lng.toString())
+                                Text("Geo : \n  Lat : ${snapshot.data![index].address!.geo!.lat}\n  Lng : ${snapshot.data![index].address!.geo!.lng}")
                               ],
                             ),
                           ),

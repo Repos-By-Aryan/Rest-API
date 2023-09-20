@@ -7,6 +7,8 @@
 /// website : "hildegard.org"
 /// company : {"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}
 
+// ignore_for_file: file_names
+
 class UserModel {
   UserModel({
       num? id, 
