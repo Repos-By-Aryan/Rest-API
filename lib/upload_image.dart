@@ -102,7 +102,10 @@ class UploadImage extends StatefulWidget {
                padding: const EdgeInsets.symmetric(horizontal: 40.0),
                child: InkWell(
                  onTap: (){
-                   uploadImage();
+                   if(image?.path.toString() == null){}
+                   else {
+                     uploadImage();
+                   }
                  },
                  child: Container(
                    decoration: BoxDecoration(

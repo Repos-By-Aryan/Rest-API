@@ -18,7 +18,7 @@ class _UpImgState extends State<UpImg> {
   bool showSpinner = false;
 
   Future<void> getImage()async{
-    var pickedFile = await _picker.pickImage(source: ImageSource.gallery, imageQuality: 80);
+    var pickedFile = await _picker.pickImage(source: ImageSource.camera, imageQuality: 80);
 
     if(pickedFile != null){
       image = File(pickedFile.path);
@@ -35,18 +35,29 @@ class _UpImgState extends State<UpImg> {
     var stream = http.ByteStream(image!.openRead());
     stream.cast();
 
-    var length = image!.length();
+    var length = await image!.length();
 
     var uri = Uri.parse('https://fakestoreapi.com/products');
 
     var request = http.MultipartRequest('POST',uri);
     request.fields['title']='Static Title';
 
-    var multipart =
-    request.files.add(multipart)
+    var multipart = await http.MultipartFile('image',stream, length);
+    request.files.add(multipart);
 
+    var response = await request.send();
+    if(response.statusCode == 200){
+      setState(() {
+        showSpinner=false;
+      });}
 
-  }
+      else{
+        setState(() {
+          showSpinner = false;
+        });
+    }
+    }
+
 
 
 
@@ -66,7 +77,9 @@ class _UpImgState extends State<UpImg> {
             Center(
               child: InkWell(
                 onTap: (){
-                  getImage();
+
+                    getImage();
+
                 },
                 child: Container(
                   width: 100,
@@ -90,7 +103,10 @@ class _UpImgState extends State<UpImg> {
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
               child: InkWell(
                 onTap: (){
-                  uploadImage();
+                  if(image?.path.toString() == null){}
+                  else {
+                    uploadImage();
+                  }
                 },
                 child: Container(
                   decoration: BoxDecoration(
