@@ -18,7 +18,7 @@ class _UpImgState extends State<UpImg> {
   bool showSpinner = false;
 
   Future<void> getImage()async{
-    var pickedFile = await _picker.pickImage(source: ImageSource.camera, imageQuality: 80);
+    var pickedFile = await _picker.pickImage(source: ImageSource.gallery, imageQuality: 80);
 
     if(pickedFile != null){
       image = File(pickedFile.path);
@@ -89,6 +89,7 @@ class _UpImgState extends State<UpImg> {
                     child: Center(
                       child: Image.file(File(image!.path).absolute,
                         height: 100,
+
                         width: 100,
                         fit: BoxFit.cover,
                       ),
